@@ -1,6 +1,6 @@
 import React from "react";
 
-const Buttons = ({ accountOpen, dispatch, close }) => {
+const Buttons = ({ accountOpen, dispatch, close, balance, loan }) => {
   const handleStart = () => {
     dispatch({ type: "start" });
   };
@@ -26,17 +26,17 @@ const Buttons = ({ accountOpen, dispatch, close }) => {
         open account
       </button>
       <>
-      <button className="btn" disabled={!accountOpen} onClick={handleDeposit}>
+      <button className="btn" disabled={!accountOpen} onClick={handleDeposit} >
         deposit
       </button>
       </>
       <>
-      <button className="btn" disabled={!accountOpen} onClick = {handleWithdraw}>
+      <button className="btn" disabled={!accountOpen || balance === 0} onClick = {handleWithdraw} >
         withdraw
       </button>
       </>
       <>
-      <button className="btn" disabled={!accountOpen} onClick={handleRequestLoan}>
+      <button className="btn" disabled={!accountOpen || loan >= 10000} onClick={handleRequestLoan}>
         request a loan of 5000
       </button>
       </>

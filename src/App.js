@@ -25,14 +25,14 @@ const reducer = (state, action) => {
     case "deposit":
       return {
         ...state,
-        balance: state.balance + 150,
+        balance: state.balance + 250,
       };
 
     case "withdraw":
-      if (state.balance >= 50){
+      if (state.balance >= 100){
       return {
         ...state,
-        balance: state.balance - 50,
+        balance: state.balance - 100,
       };}else {
         return {
           ...state,
@@ -78,7 +78,7 @@ function App() {
     <div className="body">
       <Header />
       <Amount loan={loan} balance={balance} />
-      <Buttons accountOpen={accountOpen} dispatch={dispatch} close = {showClose}/>
+      <Buttons accountOpen={accountOpen} dispatch={dispatch} close = {showClose} balance = {balance} loan = {loan}/>
     </div>
   );
 }
